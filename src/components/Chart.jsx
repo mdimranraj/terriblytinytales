@@ -1,7 +1,8 @@
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Label } from 'recharts';
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Label, LabelList, Tooltip } from 'recharts';
 import React,{useState} from 'react';
+import style from './chart.module.css';
+
 const Chart = ({freq}) => {
-    console.log("freq = " , freq)
     const [data, setData] = useState([
         { name: freq[0][0], value: freq[0][1] },
         { name: freq[1][0], value: freq[1][1] },
@@ -24,6 +25,7 @@ const Chart = ({freq}) => {
         { name: freq[18][0], value: freq[18][1] },
         { name: freq[19][0], value: freq[19][1] },
       ]);
+
       const downloadCSV = () => {
         const csv = data.map(row => `${row.name},${row.value}`).join('\n');
         const blob = new Blob([csv], { type: 'text/csv' });
@@ -36,21 +38,35 @@ const Chart = ({freq}) => {
         document.body.removeChild(link);
         URL.revokeObjectURL(url);
       };
-      
+
 
   return (
-    <div className="App">
-      <BarChart width={1000} height={400} data={data}>
-      <CartesianGrid strokeDasharray="3 3" />
-      <XAxis dataKey="name"  tick={{fontSize: 16}} height={150} angle={-90} textAnchor="end" verticalAnchor="middle" interval={0} dy={10}  dx={-5} />
-      <YAxis />
-      <Bar dataKey="value" fill="#8884d8" />
-      </BarChart>
+    <div className={style.chartContainer}>
+        <div className={style.app}>
+        <BarChart width={1000} height={400} data={data} >
+        <CartesianGrid strokeDasharray="3 3" />
+        <XAxis dataKey="name"  tick={{fontSize: 16}} height={150} angle={-90} textAnchor="end" verticalAnchor="middle" interval={0} dy={10}  dx={-5} >
+          <Label dy={70} fill="#643843" fontWeight="bold">Words</Label>
+         </XAxis> 
+        <YAxis domain={[0, dataMax => Math.ceil(dataMax/10)*15]}>
+          <Label angle={-90} dy={0}  dx={-15} fill="#643843" fontWeight="bold">Frequency</Label>
+        </YAxis>
+        <Bar dataKey="value" fill="#146C94" >
+          <LabelList dataKey="value" position="top" />
+          <Tooltip cursor={{fill: 'rgba(0, 0, 0, 0.2)'}} />
+        </Bar>
+        </BarChart>
 
-     
-  
-  <button onClick={downloadCSV} type="button" class="btn btn-secondary btn-lg">Export</button>
+      
+    
+        <div className={style.exportDiv}>
+
+        <button onClick={downloadCSV} type="button" className={`btn btn-secondary btn-lg ${style.export}`}>Export</button>
+
+        </div>
+        </div>
     </div>
+    
   )
 }
 

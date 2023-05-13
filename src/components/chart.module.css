@@ -1,0 +1,14 @@
+.chartContainer{
+    display: flex;
+    min-height: 80vh;
+}
+.app{
+    margin: 0 auto;
+}
+.exportDiv{
+    width: fit-content;
+    margin: 20px auto;
+}
+.export{
+    width: 300px;
+}

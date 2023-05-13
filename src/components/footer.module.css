@@ -1,0 +1,12 @@
+.container{
+    min-height: 80px ;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #19A7CE;
+}
+.heading{
+    width: fit-content;
+    margin: 5px auto;
+}

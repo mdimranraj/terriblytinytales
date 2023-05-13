@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios';
 import Chart from './Chart';
+import style from './getData.module.css'
 
 const GetData = () => {
     const [para, setPara] = useState("");
@@ -44,8 +45,9 @@ const GetData = () => {
       }, [para,freq,isFreqUpdated]);
 
   return (
-    <div>
+    <div className={style.container}>
         {pullData()}
+        <h4 className={style.heading}>Word-Frequency Chart</h4>
         {isFreqUpdated && <Chart freq = {freq}/> }
   
     </div>
