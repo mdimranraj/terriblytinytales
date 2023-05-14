@@ -62,7 +62,7 @@ const Chart = ({freq}) => {
         </div>
         <div className={style.exportDiv}>
 
-        <button onClick={downloadCSV} type="button" className={`btn btn-secondary btn-lg ${style.export}`}>Export</button>
+        <button onClick={downloadCSV} type="button" className={`btn btn-secondary btn-lg ${style.export}`}><img src='share.png'></img>  Export</button>
 
         </div>
     </div>

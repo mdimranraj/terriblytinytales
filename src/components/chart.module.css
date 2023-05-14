@@ -1,3 +1,19 @@
+::-webkit-scrollbar {
+    width: 10px;
+    height: 4px;
+    border: 1px solid #d5d5d5;
+  }
+  
+  ::-webkit-scrollbar-track {
+    border-radius: 0;
+    background: #eeeeee;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    border-radius: 0;
+    background: #b0b0b0;
+  }
+
 .chartContainer{
     display: flex;
     flex-direction: column;
@@ -5,10 +21,15 @@
 }
 .app{
     margin: 0 auto;
+    padding: 10px 0;
     display: flex;
     justify-content: flex-start;
     width: 90%;
     overflow-x: auto;
+    -webkit-box-shadow: inset 10px -11px 33px -9px rgba(0,77,110,0.7);
+    -moz-box-shadow: inset 10px -11px 33px -9px rgba(0,77,110,0.7);
+    box-shadow: inset 10px -11px 33px -9px rgba(0,77,110,0.7);
+    border-radius: 10px;
 }
 .exportDiv{
     width: fit-content;
@@ -16,6 +37,16 @@
 }
 .export{
     width: 300px;
+    letter-spacing: 1.5px;
+    font-size: 1.3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.export img{
+    width: 1.3rem;
+    height: 1.4rem;
+    margin: 0 10px;
 }
 
 /* small phones */
