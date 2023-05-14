@@ -1,4 +1,4 @@
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Label, LabelList, Tooltip } from 'recharts';
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Label, LabelList, Tooltip, ResponsiveContainer } from 'recharts';
 import React,{useState} from 'react';
 import style from './chart.module.css';
 
@@ -43,27 +43,27 @@ const Chart = ({freq}) => {
   return (
     <div className={style.chartContainer}>
         <div className={style.app}>
-        <BarChart width={1000} height={400} data={data} >
-        <CartesianGrid strokeDasharray="3 3" />
-        <XAxis dataKey="name"  tick={{fontSize: 16}} height={150} angle={-90} textAnchor="end" verticalAnchor="middle" interval={0} dy={10}  dx={-5} >
-          <Label dy={70} fill="#643843" fontWeight="bold">Words</Label>
-         </XAxis> 
-        <YAxis domain={[0, dataMax => Math.ceil(dataMax/10)*15]}>
-          <Label angle={-90} dy={0}  dx={-15} fill="#643843" fontWeight="bold">Frequency</Label>
-        </YAxis>
-        <Bar dataKey="value" fill="#146C94" >
-          <LabelList dataKey="value" position="top" />
-          <Tooltip cursor={{fill: 'rgba(0, 0, 0, 0.2)'}} />
-        </Bar>
-        </BarChart>
+        
+          <BarChart width={1000} height={400} data={data} >
+          <CartesianGrid strokeDasharray="3 3" />
+          <XAxis dataKey="name"  tick={{fontSize: 16}} height={150} angle={-90} textAnchor="end" verticalAnchor="middle" interval={0} dy={10}  dx={-5} >
+            <Label dy={70} fill="#643843" fontWeight="bold">Words</Label>
+          </XAxis> 
+          <YAxis domain={[0, dataMax => Math.ceil(dataMax/10)*15]}>
+            <Label angle={-90} dy={0}  dx={-15} fill="#643843" fontWeight="bold">Frequency</Label>
+          </YAxis>
+          <Bar dataKey="value" fill="#146C94" >
+            <LabelList dataKey="value" position="top" />
+            <Tooltip cursor={{fill: 'rgba(0, 0, 0, 0.2)'}} />
+          </Bar>
+          </BarChart>
 
-      
-    
+
+        </div>
         <div className={style.exportDiv}>
 
         <button onClick={downloadCSV} type="button" className={`btn btn-secondary btn-lg ${style.export}`}>Export</button>
 
-        </div>
         </div>
     </div>
     

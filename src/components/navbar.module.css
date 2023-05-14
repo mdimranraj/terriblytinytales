@@ -1,14 +1,16 @@
 .navContainer{
     background-color: #19A7CE !important;
+    border-radius: 0 0 20% 20%;
 }
 .exit{
     width: 30px;
-    height: auto;;
+    height: auto;
 }
 .logo{
     font-weight: bold;
     letter-spacing: 2px;
     font-size: 1.4rem;
+    color: #ede5e5 !important;
 }
 
 

@@ -1,5 +1,6 @@
 .container{
     background-color: #d7f1fd;
+    min-height: 80vh;
 }
 .heading{
     width: fit-content;
